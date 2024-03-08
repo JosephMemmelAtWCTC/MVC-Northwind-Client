@@ -6,5 +6,6 @@ namespace Northwind.Controllers
     {
         // public string Index() => "This is Home";
         public ActionResult Index() => View();
+        
     }
 }
