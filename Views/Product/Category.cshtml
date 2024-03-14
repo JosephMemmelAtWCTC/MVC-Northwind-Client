@@ -1,11 +1,11 @@
 @model IEnumerable<Category>
+<br>
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Categories</li>
   </ol>
 </nav>
-@* <br> *@
 <ul class="list-group">
 
     @foreach (Category category in Model)

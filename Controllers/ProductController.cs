@@ -9,6 +9,6 @@ public class ProductController(DataContext db) : Controller
 
     public IActionResult Category() => View(_dataContext.Categories.OrderBy(c => c.CategoryName));
 
-    public IActionResult Index(int id) => View(_dataContext.Products.OrderBy(p => !p.Discontinued && p.CategoryId == id));
+    public IActionResult Index(int id) => View(_dataContext.Products.Where(p => !p.Discontinued && p.CategoryId == id).OrderBy(p => p.ProductName));
 
 }
