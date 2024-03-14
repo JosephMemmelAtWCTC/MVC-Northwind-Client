@@ -11,14 +11,14 @@ public class ProductController(DataContext db) : Controller
     // public IActionResult Category() => View(_dataContext.Categories.Include(c => c.Products).OrderBy(c => c.CategoryName));
     public IActionResult Category() => View(_dataContext.Categories.OrderBy(c => c.CategoryName));
 
-    public IActionResult Product(int id) => View(_dataContext.Products.OrderBy(p => p.ProductName));
+    // public IActionResult Products(int id) => View(_dataContext.Products.OrderBy(p => p.ProductName));
 
-//   public IActionResult BlogDetail(int id) => View(new PostViewModel
-//   {
-//     blog = _dataContext.Blogs.FirstOrDefault(b => b.BlogId == id),
-//     Posts = _dataContext.Posts.Where(p => p.BlogId == id)
-//   });
-    // public IActionResult Index(int id) => View(_dataContext.Products.Where(p => p.CategoryId == id && !p.Discontinued));
+    public IActionResult Index(int id) => View(_dataContext.Products.OrderBy(b => b.CategoryId == id));
 
+    // public IActionResult Index(int id) => View(new PostViewModel
+    // {
+    //     category = _dataContext.Categories.FirstOrDefault(b => b.CategoryId == id),
+    //     products = _dataContext.Products.Where(p => p.CategoryId == id)
+    // });
 
 }
