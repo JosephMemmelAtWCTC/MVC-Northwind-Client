@@ -1,33 +1,23 @@
 @model IEnumerable<Category>
-
-<br>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Categories</li>
+  </ol>
+</nav>
+@* <br> *@
 <ul class="list-group">
 
     @foreach (Category category in Model)
     {
 
-        <li class="list-group-item">@category.CategoryName
+        <li class="list-group-item">
+            <a asp-controller="Product" asp-action="Index" asp-route-id="@category.CategoryId" asp-route-cateogry-name="@category.CategoryName">
+                @category.CategoryName
+            </a>
             -
-        <a asp-controller="Product" asp-action="Index" asp-route-id="@category.CategoryId">
-        @category.Description
-        </a>
-            <a asp-controller="Product" asp-action="Index" asp-route-id="@category.CategoryId">@category.CategoryId</a> |
-
+            @category.Description
         </li>
     }
 </ul>
 <br>
-<a asp-controller="Home" asp-action="Index">New Blog</a>
-@* 
-@model IEnumerable<Category>
-
-<ul class="list-group">
-    @foreach (var category in Model)
-    {
-        <li class="list-group-item">
-            <a asp-controller="Product" asp-action="BlogDetail" asp-route-id="@category.CategoryId">@category.CategoryName</a> | 
-
-            <a asp-controller="Product" asp-action="Index" asp-route-id="@category.CategoryId">@category.CategoryName</a>
-        </li>
-    }
-</ul> *@

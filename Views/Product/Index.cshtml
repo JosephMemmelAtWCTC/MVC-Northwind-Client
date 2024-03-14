@@ -1,16 +1,40 @@
 @model IEnumerable<Product>
 
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Category">Category</a></li>
+    <li class="breadcrumb-item active" aria-current="page">______</li>
+    @* TODO: Ask how to get the cateogory name here *@
+  </ol>
+</nav>
+
 @* <div class="bg-primary m-1 p-1 text-white">
 <h4>____ Listing</h4>
 </div> *@
-<br>
-<ul class="list-group">
-
+<br>    
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col"># In Stock</th>
+            <th scope="col"># On Order</th>
+            <th scope="col">Quantity Per Unit</th>
+        </tr>
+    </thead>
+    <tbody>
     @foreach (Product product in Model)
     {
-
-        <li class="list-group-item">@product.ProductName
-        </li>
+        <tr>
+            <th scope="row">@product.ProductName</th>
+            <td>@product.UnitsInStock</td>
+            <td>@product.UnitsOnOrder</td>
+            <td>@product.QuantityPerUnit</td>
+        </tr>
     }
-</ul>
+    <tbody>
+    
+</table>
 <br>
+<a asp-controller="Home" asp-action="Index">Home</a>
+<a asp-controller="Product" asp-action="Category">Categories</a>
