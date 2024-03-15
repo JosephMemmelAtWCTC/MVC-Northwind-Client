@@ -3,7 +3,7 @@
 <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
-    <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Category">Category</a></li>
+    <li class="breadcrumb-item"><a asp-controller="Product" asp-action="Category">Categories</a></li>
     <li class="breadcrumb-item active" aria-current="page">______</li>
     @* TODO: Ask how to get the cateogory name here *@
   </ol>
@@ -17,6 +17,7 @@
     <thead>
         <tr>
             <th scope="col">Name</th>
+            <th scope="col">Price</th>
             <th scope="col"># In Stock</th>
             <th scope="col"># On Order</th>
             <th scope="col">Quantity Per Unit</th>
@@ -27,6 +28,7 @@
     {
         <tr>
             <th scope="row">@product.ProductName</th>
+            <td>@product.UnitPrice</td>
             <td>@product.UnitsInStock</td>
             <td>@product.UnitsOnOrder</td>
             <td>@product.QuantityPerUnit</td>

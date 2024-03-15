@@ -13,10 +13,8 @@
 
         <li class="list-group-item">
             <a asp-controller="Product" asp-action="Index" asp-route-id="@category.CategoryId" asp-route-cateogry-name="@category.CategoryName">
-                @category.CategoryName
+                @category.CategoryName - <i>@category.Description</i>
             </a>
-            -
-            @category.Description
         </li>
     }
 </ul>
