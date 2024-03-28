@@ -1,0 +1,84 @@
+@model IEnumerable<Customer>
+<br>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-controller="Customer" asp-action="Customers">Customers</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.FirstOrDefault().CompanyName</li>
+        @* TODO: Ask how to get the cateogory name here *@
+    </ol>
+</nav>
+
+
+<br>
+<table class="table table-striped table-hover">
+    <thead>
+        @* <tr>
+        <th scope="col"></th>
+        <th scope="col"></th>
+        </tr> *@
+        <tr>
+            <th scope="row">Customer ID</th>
+            <td>@Model.FirstOrDefault().CustomerId</td>
+        </tr>
+        <tr>
+            <th scope="row">Name</th>
+            <td>@Model.FirstOrDefault().CompanyName</td>
+        </tr>
+        <tr>
+            <th scope="row">Address</th>
+            <td>@Model.FirstOrDefault().Address</td>
+        </tr>
+        <tr>
+            <th scope="row">City</th>
+            <td>@Model.FirstOrDefault().City</td>
+        </tr>
+        <tr>
+            <th scope="row">Region</th>
+            <td>@Model.FirstOrDefault().Region</td>
+        </tr>
+        <tr>
+            <th scope="row">PostalCode</th>
+            <td>@Model.FirstOrDefault().PostalCode</td>
+        </tr>
+        <tr>
+            <th scope="row">Country</th>
+            <td>@Model.FirstOrDefault().Country</td>
+        </tr>
+        <tr>
+            <th scope="row">Phone</th>
+            <td>@Model.FirstOrDefault().Phone</td>
+        </tr>
+        <tr>
+            <th scope="row">Fax</th>
+            <td>@Model.FirstOrDefault().Fax</td>
+        </tr>
+
+
+
+
+
+
+
+
+
+
+
+    </thead>
+    <tbody>
+        @* @foreach (Product product in Model)
+        {
+        <tr>
+        <th scope="row">@product.ProductName</th>
+        <td>$@(float.Parse(product.UnitPrice.ToString()))</td>
+        <td>@product.UnitsInStock</td>
+        <td>@product.UnitsOnOrder</td>
+        <td>@product.QuantityPerUnit</td>
+        </tr>
+        } *@
+    <tbody>
+
+</table>
+<br>
+<a asp-controller="Home" asp-action="Index">Home</a>
+<a asp-controller="Product" asp-action="Category">Categories</a>

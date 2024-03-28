@@ -1,0 +1,25 @@
+@model IEnumerable<Customer>
+<br>
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a asp-controller="Home" asp-action="Index">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Customers</li>
+  </ol>
+</nav>
+<ul class="list-group">
+  <a asp-controller="Customer" asp-action="Register">
+    Register new Customer
+  </a>
+  @if (Model.Count<Customer>() == 0){
+    <p>Sorry but it looks like you don't have any customers on record.</p>
+  }
+  @foreach (Customer customer in Model)
+  {
+      <li class="list-group-item">
+          <a asp-controller="Customer" asp-action="Index" asp-route-id="@customer.CustomerId">
+              @customer.CompanyName
+          </a>
+      </li>
+  }
+</ul>
+<br>
